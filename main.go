@@ -141,6 +141,10 @@ func Knn(data []Data, k byte, X *Point) (err error) {
 	// sort the data in ascending order order
 	sort.Sort(blk)
 	var save []Labels
+	// pass
+	if int(k) > n {
+		return nil
+	}
 	for i := byte(0); i < k; i++ {
 		save = foundLabelAndIncrement(data[i].point.label, save)
 	}
